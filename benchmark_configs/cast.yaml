@@ -1,0 +1,60 @@
+{
+  "method": "cast",
+  "training_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": false,
+    "batch_size": 1,
+    "vector_method": "pca_pairwise",
+    "condition_vector_method": "pca_pairwise",
+    "max_questions": 100,
+    "max_suffixes": 100,
+    "max_condition_examples": null,
+    "refusal_accumulate_last_x_tokens": "suffix-only",
+    "condition_accumulate_last_x_tokens": "all",
+    "condition_split": "train",
+    "save_analysis": false
+  },
+  "validation_fixed": {
+    "condition_comparison_mode": "mean",
+    "find_condition_point": true,
+    "layer_range_start": 1,
+    "layer_range_end": 15,
+    "max_layers_to_combine": 1,
+    "threshold_min": 0.0,
+    "threshold_max": 1.0,
+    "threshold_step": 0.001,
+    "gate_weighting": "manual_category",
+    "gate_category_weights": {
+      "original": 7.5,
+      "close_harmful": 0.5,
+      "benign_harmful_words": 1.5,
+      "benign_same_structure": 1.5,
+    }
+  },
+  "validation_selected": {
+    "strength": {
+      "default": 0.4,
+      "values": [0.4]
+    },
+    "condition_layers": {},
+    "condition_threshold": {},
+    "condition_direction": {
+      "default": "larger",
+      "values": ["larger", "smaller"]
+    }
+  },
+  "inference_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": true,
+    "batch_size": 32,
+    "max_input_tokens": 4096,
+    "max_new_tokens": 250,
+    "vector_method": "pca_pairwise",
+    "condition_vector_method": "pca_pairwise",
+    "layers": "auto",
+    "condition_comparison_mode": "mean",
+    "apply_on_first_call": true
+  }
+}

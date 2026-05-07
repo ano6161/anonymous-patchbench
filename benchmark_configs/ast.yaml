@@ -1,0 +1,32 @@
+{
+  "method": "ast",
+  "training_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": false,
+    "batch_size": 32,
+    "vector_method": "pca_pairwise",
+    "max_questions": 100,
+    "max_suffixes": 100,
+    "refusal_accumulate_last_x_tokens": "suffix-only",
+    "save_analysis": false
+  },
+  "validation_fixed": {},
+  "validation_selected": {
+    "strength": {
+      "default": 550,
+      "values": [550]
+    }
+  },
+  "inference_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": true,
+    "batch_size": 16,
+    "max_input_tokens": 4096,
+    "max_new_tokens": 250,
+    "vector_method": "pca_pairwise",
+    "layers": "auto",
+    "apply_on_first_call": true
+  }
+}
